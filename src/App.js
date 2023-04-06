@@ -1,25 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import FaceCapture, { CAPTURE_METHOD, ERROR_CODE, FCMResult } from '@getyoti/react-face-capture';
+import "@getyoti/react-face-capture/index.css";
+import "@getyoti/react-face-capture/index.js";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+  const onSuccess = ({ image }) => console.log("Length = ", image.length);
+  const onError = (error) => console.log("Error =", error);
+
+  return <FaceCapture onSuccess={onSuccess} onError={onError} />;
 }
-
-export default App;
