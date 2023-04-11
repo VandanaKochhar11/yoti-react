@@ -4,7 +4,7 @@ import "@getyoti/react-face-capture/index.css";
 import "@getyoti/react-face-capture/index.js";
 
 export default function App() {
-  const onSuccess = ({ image }) => console.log("Length = ", image.length);
+  const onSuccess = ({ img }) => {console.log("Image = ", img); console.log("Length = ", img.length)};
   const onError = (error) => console.log("Error =", error);
 
   return <FaceCapture onSuccess={onSuccess} onError={onError} />;
